@@ -1,0 +1,114 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 7rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 0em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.uploader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-Header {
+  background-color: #282c34;
+  padding: 1rem;
+  color: white;
+}
+
+.App-Main {
+  padding: 0;
+}
+
+.main-flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.side-container {
+  flex: 1;
+  width: 20%;
+  padding: 1rem;
+  background-color: #282c34;
+  margin-right: 1rem;
+}
+
+.side-container h2 {
+  font-size: 1.5rem;
+}
+
+.side-container p {
+  font-size: 1rem;
+  color: white;
+}
+
+.right-container {
+  flex: 2;
+  padding: 1rem;
+  background-color: #282c34;
+  border-radius: 0.5rem;
+}
+
+.right-container h2 {
+  font-size: 1.5rem;
+}
+
+.right-container p {
+  font-size: 1rem;
+  color: white;
+}

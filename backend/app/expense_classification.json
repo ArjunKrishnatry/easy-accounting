@@ -1,0 +1,23 @@
+[
+    {
+        "classification": "01 - Snack",
+        "expenses_attributed": [
+            "RAY'S VARIETY     _M",
+            "UCC TIM'S EXPRE   _M",
+            "UCC TIM'S UPPER   _M",
+            "Spotify P3    7.16_V"
+        ]
+    },
+    {
+        "classification": "02 - Snack",
+        "expenses_attributed": [
+            "RAY'S VARIETY     _M"
+        ]
+    },
+    {
+        "classification": "03 - food out",
+        "expenses_attributed": [
+            "UBER* EATS PEND   _V"
+        ]
+    }
+]

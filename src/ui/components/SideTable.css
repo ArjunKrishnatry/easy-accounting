@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.side-table-container {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    height: fit-content;
+    max-height: 85vh;
+    overflow-y: auto;
+    border: 1px solid #4a5568;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #4a5568;
+}
+
+.sidebar-header h2 {
+    color: #f7fafc;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-folder-btn {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    color: #f7fafc;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.3);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-folder-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.4);
+}
+
+.create-folder-form {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #718096;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.create-folder-form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #718096;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    transition: border-color 0.2s ease;
+    background: #2d3748;
+    color: #f7fafc;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-folder-form input:focus {
+    outline: none;
+    border-color: #d69e2e;
+    box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.2);
+}
+
+.create-folder-form input::placeholder {
+    color: #a0aec0;
+}
+
+.folder-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.folder-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.folder-actions button:first-child {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    color: #f7fafc;
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.3);
+}
+
+.folder-actions button:first-child:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.4);
+}
+
+.folder-actions button:last-child {
+    background: #4a5568;
+    color: #e2e8f0;
+    border: 1px solid #718096;
+}
+
+.folder-actions button:last-child:hover {
+    background: #2d3748;
+}
+
+.files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.file-item {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.file-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: #718096;
+}
+
+.file-item.selected {
+    background: linear-gradient(135deg, #744210 0%, #8b4513 100%);
+    border-color: #d69e2e;
+    box-shadow: 0 4px 12px rgba(214, 158, 46, 0.3);
+}
+
+.file-item.folder-file {
+    margin-left: 1.5rem;
+    border-left: 4px solid #d69e2e;
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.file-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f7fafc;
+    margin: 0;
+    flex: 1;
+    word-break: break-word;
+    line-height: 1.4;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.file-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-date {
+    font-size: 0.7rem;
+    color: #a0aec0;
+    background: #2d3748;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rename-btn,
+.save-to-folder-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+}
+
+.rename-btn {
+    color: #a0aec0;
+}
+
+.rename-btn:hover {
+    background: #2d3748;
+    color: #f7fafc;
+}
+
+.save-to-folder-btn {
+    color: #d69e2e;
+}
+
+.save-to-folder-btn:hover {
+    background: #744210;
+    color: #f7fafc;
+}
+
+.rename-form {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background: #2d3748;
+    border-radius: 8px;
+    border: 2px solid #718096;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rename-form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #718096;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.2s ease;
+    background: #1a202c;
+    color: #f7fafc;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rename-form input:focus {
+    outline: none;
+    border-color: #d69e2e;
+    box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.2);
+}
+
+.rename-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rename-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rename-actions button:first-child {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    color: #f7fafc;
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.3);
+}
+
+.rename-actions button:first-child:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.4);
+}
+
+.rename-actions button:last-child {
+    background: #4a5568;
+    color: #e2e8f0;
+    border: 1px solid #718096;
+}
+
+.rename-actions button:last-child:hover {
+    background: #2d3748;
+}
+
+.folder-item {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    border-radius: 12px;
+    border: 2px solid #718096;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.folder-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: #d69e2e;
+}
+
+.folder-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+}
+
+.folder-header:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+.folder-header.expanded {
+    background: linear-gradient(135deg, #744210 0%, #8b4513 100%);
+    border-bottom: 2px solid #d69e2e;
+}
+
+.folder-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.folder-header.expanded .folder-icon {
+    transform: rotate(90deg);
+}
+
+.folder-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f7fafc;
+    margin: 0;
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.folder-count {
+    font-size: 0.7rem;
+    color: #a0aec0;
+    background: #1a202c;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid #4a5568;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.folder-contents {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: #1a202c;
+    border-radius: 0 0 12px 12px;
+}
+
+.folder-contents .file-item {
+    margin-left: 0;
+    border-left: 4px solid #d69e2e;
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+.folder-contents .file-item:hover {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+.folder-dropdown {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background: #2d3748;
+    border-radius: 10px;
+    border: 2px solid #718096;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f7fafc;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.close-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #a0aec0;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.close-dropdown-btn:hover {
+    background: #1a202c;
+    color: #f7fafc;
+}
+
+.folder-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.folder-option {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    border: 2px solid #718096;
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.2s ease;
+    color: #f7fafc;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.folder-option:hover {
+    background: linear-gradient(135deg, #744210 0%, #8b4513 100%);
+    border-color: #d69e2e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(214, 158, 46, 0.3);
+}
+
+.no-folders {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    text-align: center;
+    padding: 1rem;
+    background: #1a202c;
+    border-radius: 8px;
+    border: 1px dashed #718096;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.file-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    padding: 0.25rem 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stat-label {
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: #f7fafc;
+}
+
+.stat-value.expense {
+    color: #f56565;
+}
+
+.stat-value.income {
+    color: #48bb78;
+}
+
+/* Scrollbar styling */
+.side-table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.side-table-container::-webkit-scrollbar-track {
+    background: #2d3748;
+    border-radius: 4px;
+}
+
+.side-table-container::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 4px;
+}
+
+.side-table-container::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
