@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import FileUploader from '../components/FileUploader';
 import TableView from '../components/TableView';
 import DataView from '../components/DataView';
 import ClassificationSelector from '../components/ClassificationSelector';
 import SideTable from '../components/SideTable';
+import DeleteConfirmModal from '../components/DeleteConfirmModal';
 import api from '../api';
 
 interface FileRecord {
@@ -28,12 +30,25 @@ type FileOrFolder = FileRecord | FolderRecord;
 
 export default function Dashboard() {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [parsedData, setParsedData] = useState<any[]>([]);
   const [showTableView, setShowTableView] = useState(true);
   const [showClassifier, setShowClassifier] = useState(false);
   const [remaningclassifications, setRemaningClassifications] = useState<any[]>([]);
   const [uploadedFiles, setUploadedFiles] = useState<FileOrFolder[]>([]);
   const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
+  const [deleteModal, setDeleteModal] = useState<{
+    isOpen: boolean;
+    itemId: string;
+    itemName: string;
+    itemType: 'file' | 'folder';
+    folderFileCount?: number;
+  }>({
+    isOpen: false,
+    itemId: '',
+    itemName: '',
+    itemType: 'file'
+  });
 
   // Load stored files on component mount
   useEffect(() => {
@@ -75,10 +90,36 @@ export default function Dashboard() {
     await logout();
   };
 
+  const handleDeleteClick = (id: string, type: 'file' | 'folder') => {
+    // Find the item to get its name
+    const item = uploadedFiles.find(f => f.id === id);
+    if (!item) return;
+
+    const itemName = 'type' in item && item.type === 'folder' ? item.name : (item as FileRecord).filename;
+    const folderFileCount = 'type' in item && item.type === 'folder' ? item.files.length : 0;
+
+    setDeleteModal({
+      isOpen: true,
+      itemId: id,
+      itemName,
+      itemType: type,
+      folderFileCount
+    });
+  };
+
+  const handleDeleteSuccess = () => {
+    loadStoredFiles();
+    // Clear selection if the deleted item was selected
+    if (deleteModal.itemId === selectedFileId) {
+      setSelectedFileId(null);
+      setParsedData([]);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Top Navigation Bar */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white border-b border-slate-200 fixed top-0 left-0 right-0 z-50 shadow-sm w-full">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Title */}
@@ -94,12 +135,22 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* User Info and Logout */}
+            {/* User Info and Actions */}
             <div className="flex items-center space-x-4">
               <div className="text-right">
                 <p className="text-sm font-medium text-slate-900">Welcome, {user?.name}!</p>
                 <p className="text-xs text-slate-500">Manage your finances</p>
               </div>
+              <button
+                onClick={() => navigate('/settings')}
+                className="flex items-center justify-center p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors duration-200"
+                title="Settings"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </button>
               <button
                 onClick={handleLogout}
                 className="flex items-center space-x-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors duration-200"
@@ -115,7 +166,7 @@ export default function Dashboard() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 px-6 py-8">
+      <main className="flex-1 px-6 py-8 mt-[88px]">
         <div className="max-w-7xl mx-auto space-y-6">
           {/* File Upload Section */}
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
@@ -138,6 +189,7 @@ export default function Dashboard() {
                   onFileSelect={handleFileSelect}
                   selectedFileId={selectedFileId}
                   onRefresh={loadStoredFiles}
+                  onDelete={handleDeleteClick}
                 />
               </div>
             </div>
@@ -190,6 +242,17 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
+
+      {/* Delete Confirmation Modal */}
+      <DeleteConfirmModal
+        isOpen={deleteModal.isOpen}
+        onClose={() => setDeleteModal({ ...deleteModal, isOpen: false })}
+        onSuccess={handleDeleteSuccess}
+        itemType={deleteModal.itemType}
+        itemName={deleteModal.itemName}
+        itemId={deleteModal.itemId}
+        folderFileCount={deleteModal.folderFileCount}
+      />
     </div>
   );
 }

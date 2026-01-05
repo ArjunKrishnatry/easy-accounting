@@ -284,8 +284,24 @@ def move_file(file_id: str = Body(...), folder_id: str = Body(...)):
     return {"message": "File moved successfully"}
 
 @app.delete("/folder/{folder_id}")
-def delete_folder(folder_id: str):
+def delete_folder(folder_id: str, delete_contents: bool = Body(default=False)):
     stored_files = load_stored_files()
+
+    # Find the folder
+    folder = None
+    for f in stored_files:
+        if f["id"] == folder_id and f.get("type") == "folder":
+            folder = f
+            break
+
+    if not folder:
+        return {"error": "Folder not found"}
+
+    # Check if folder has files and delete_contents is False
+    if folder.get("files") and len(folder["files"]) > 0 and not delete_contents:
+        return {"error": "Folder contains files. Set delete_contents to true to delete folder and its contents."}
+
+    # Delete the folder
     stored_files = [f for f in stored_files if f["id"] != folder_id]
     save_stored_files(stored_files)
     return {"message": "Folder deleted successfully"}
