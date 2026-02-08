@@ -75,6 +75,8 @@ export default function DeleteConfirmModal({
             console.error('Delete error:', err);
             if (err.response?.status === 401 || err.response?.status === 403) {
                 setError('Invalid credentials');
+            } else if (err.response?.data?.detail) {
+                setError(err.response.data.detail);
             } else if (err.response?.data?.error) {
                 setError(err.response.data.error);
             } else {
@@ -97,7 +99,7 @@ export default function DeleteConfirmModal({
         <div className="fixed inset-0 z-[100] flex items-center justify-center">
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-black bg-opacity-50"
+                className="absolute inset-0 bg-slate-300 bg-opacity-50"
                 onClick={handleClose}
             />
 

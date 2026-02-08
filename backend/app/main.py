@@ -14,8 +14,6 @@ from datetime import datetime
 import uuid
 from pathlib import Path
 
-index = -1
-
 app = FastAPI()
 
 origins = [
@@ -44,6 +42,23 @@ def load_stored_files():
 def save_stored_files(files):
     with open(STORAGE_FILE, 'w') as f:
         json.dump(files, f, indent=2)
+
+def find_file_by_id(stored_files, file_id):
+    """Find a file by ID, searching both root level and inside folders.
+    Returns tuple: (file_dict, parent_folder_or_none, is_in_folder)"""
+    # Check root level first
+    for item in stored_files:
+        if item.get("type") != "folder" and item.get("id") == file_id:
+            return (item, None, False)
+
+    # Check inside folders
+    for item in stored_files:
+        if item.get("type") == "folder":
+            for file in item.get("files", []):
+                if file.get("id") == file_id:
+                    return (file, item, True)
+
+    return (None, None, False)
 
 def load_sessions():
     if os.path.exists(SESSIONS_FILE):
@@ -139,17 +154,28 @@ def get_stored_files():
 
 @app.get("/file-data/{file_id}")
 def get_file_data(file_id: str):
-    files = load_stored_files()
-    for file in files:
-        if file["id"] == file_id:
-            return {"data": file["data"]}
-    return {"error": "File not found"}
+    stored_files = load_stored_files()
+    file, _, _ = find_file_by_id(stored_files, file_id)
+    if file:
+        return {"data": file["data"]}
+    raise HTTPException(status_code=404, detail="File not found")
 
 @app.delete("/file/{file_id}")
 def delete_file(file_id: str):
-    files = load_stored_files()
-    files = [f for f in files if f["id"] != file_id]
-    save_stored_files(files)
+    stored_files = load_stored_files()
+    file, parent_folder, is_in_folder = find_file_by_id(stored_files, file_id)
+
+    if not file:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    if is_in_folder and parent_folder:
+        # Remove from folder's files array
+        parent_folder["files"] = [f for f in parent_folder["files"] if f["id"] != file_id]
+    else:
+        # Remove from root level
+        stored_files = [f for f in stored_files if f["id"] != file_id]
+
+    save_stored_files(stored_files)
     return {"message": "File deleted successfully"}
 
 @app.post("/reclassify")
@@ -158,6 +184,24 @@ async def reclassify(parsed: list = Body(...)):
     df, _ = classify(df)  # This will use the updated JSON files
     parsed_data = df.to_dict(orient="records")
     return {"parsed": parsed_data}
+
+@app.post("/update-file-data/{file_id}")
+async def update_file_data(file_id: str, data: list = Body(...)):
+    """Update the stored data for a file after reclassification"""
+    stored_files = load_stored_files()
+    file, _, _ = find_file_by_id(stored_files, file_id)
+
+    if not file:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    file["data"] = data
+    # Recalculate totals
+    df = pd.DataFrame(data)
+    file["totalExpense"] = float(df['expense'].sum())
+    file["totalIncome"] = float(df['income'].sum())
+    file["totalRecords"] = len(df)
+    save_stored_files(stored_files)
+    return {"message": "File data updated successfully"}
 
 @app.post("/addnewvalue")
 async def add_new_activity_post(
@@ -215,14 +259,14 @@ def sum_classifications(classifications: List = Body(...)):
 def create_folder(folder_data: dict = Body(...)):
     folder_name = folder_data.get("folder_name")
     if not folder_name:
-        return {"error": "Folder name is required"}
-    
+        raise HTTPException(status_code=400, detail="Folder name is required")
+
     stored_files = load_stored_files()
-    
+
     # Check if folder already exists
     for file in stored_files:
         if file.get("type") == "folder" and file.get("name") == folder_name:
-            return {"error": "Folder already exists"}
+            raise HTTPException(status_code=400, detail="Folder already exists")
     
     folder_id = str(uuid.uuid4())
     folder_record = {
@@ -246,33 +290,33 @@ def debug_stored_files():
 @app.post("/rename-file")
 def rename_file(file_id: str = Body(...), new_name: str = Body(...)):
     stored_files = load_stored_files()
-    
-    for file in stored_files:
-        if file["id"] == file_id:
-            file["filename"] = new_name
-            save_stored_files(stored_files)
-            return {"message": "File renamed successfully"}
-    
-    return {"error": "File not found"}
+    file, _, _ = find_file_by_id(stored_files, file_id)
+
+    if not file:
+        raise HTTPException(status_code=404, detail="File not found")
+
+    file["filename"] = new_name
+    save_stored_files(stored_files)
+    return {"message": "File renamed successfully"}
 
 @app.post("/move-file")
 def move_file(file_id: str = Body(...), folder_id: str = Body(...)):
     stored_files = load_stored_files()
-    
+
     # Find the file and folder
     file_to_move = None
     target_folder = None
-    
+
     for file in stored_files:
         if file["id"] == file_id:
             file_to_move = file
         elif file["id"] == folder_id and file.get("type") == "folder":
             target_folder = file
-    
+
     if not file_to_move:
-        return {"error": "File not found"}
+        raise HTTPException(status_code=404, detail="File not found")
     if not target_folder:
-        return {"error": "Folder not found"}
+        raise HTTPException(status_code=404, detail="Folder not found")
     
     # Remove file from current location
     stored_files = [f for f in stored_files if f["id"] != file_id]
@@ -284,7 +328,7 @@ def move_file(file_id: str = Body(...), folder_id: str = Body(...)):
     return {"message": "File moved successfully"}
 
 @app.delete("/folder/{folder_id}")
-def delete_folder(folder_id: str, delete_contents: bool = Body(default=False)):
+def delete_folder(folder_id: str, delete_contents: bool = False):
     stored_files = load_stored_files()
 
     # Find the folder
@@ -295,11 +339,11 @@ def delete_folder(folder_id: str, delete_contents: bool = Body(default=False)):
             break
 
     if not folder:
-        return {"error": "Folder not found"}
+        raise HTTPException(status_code=404, detail="Folder not found")
 
     # Check if folder has files and delete_contents is False
     if folder.get("files") and len(folder["files"]) > 0 and not delete_contents:
-        return {"error": "Folder contains files. Set delete_contents to true to delete folder and its contents."}
+        raise HTTPException(status_code=400, detail="Folder contains files. Set delete_contents to true to delete folder and its contents.")
 
     # Delete the folder
     stored_files = [f for f in stored_files if f["id"] != folder_id]

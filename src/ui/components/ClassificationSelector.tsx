@@ -7,9 +7,10 @@ interface ClassificationSelectorProps {
     RemainingClassifications: any[]
     setParsedData: (data: any[]) => void
     parsedData: any[]
+    selectedFileId?: string | null
 }
 
-export default function ClassificationSelector({ setShowClassifier, RemainingClassifications, setParsedData, parsedData }: ClassificationSelectorProps) {
+export default function ClassificationSelector({ setShowClassifier, RemainingClassifications, setParsedData, parsedData, selectedFileId }: ClassificationSelectorProps) {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [options, setOptions] = useState<string[]>([]);
     const [remaninglen, setRemaningLen] = useState<number>(RemainingClassifications.length - 1);
@@ -59,7 +60,14 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
             });
             if (remaninglen === 0) {
                 const response = await api.post("/reclassify", parsedData);
-                setParsedData(response.data.parsed);
+                const updatedData = response.data.parsed;
+                setParsedData(updatedData);
+
+                // Persist the reclassified data to the stored file
+                if (selectedFileId) {
+                    await api.post(`/update-file-data/${selectedFileId}`, updatedData);
+                }
+
                 setShowClassifier(false);
             } else {
                 setSelectedOption(null);
@@ -85,9 +93,14 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
 
             const endpoint = transactionType === "Income" ? "/income-options" : "/expense-options";
             const response = await api.get(endpoint);
-            setOptions(response.data.options);
+            const newOptions = response.data.options;
+            setOptions(newOptions);
 
-            setSelectedOption(newClassificationName.trim());
+            // Find the actual formatted classification name (e.g., "02 - CategoryName")
+            const formattedName = newOptions.find((opt: string) =>
+                opt.toLowerCase().includes(newClassificationName.trim().toLowerCase())
+            );
+            setSelectedOption(formattedName || newClassificationName.trim());
             setNewClassificationName("");
             setShowNewClassificationForm(false);
 

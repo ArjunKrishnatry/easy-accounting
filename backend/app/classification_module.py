@@ -31,7 +31,7 @@ def classify(df):
         matched = False
 
         # Check if the row has expense or income and classify accordingly
-        if int(row["expense"]) > 0:
+        if float(row["expense"]) > 0:
             for category, keywords in expense_classification_map.items():
                 for keyword in keywords:
                     if keyword == activity :
@@ -44,7 +44,7 @@ def classify(df):
                 row_dict['idx'] = idx
                 remaining_classifications.append(row_dict)
 
-        elif int(row["income"]) > 0:
+        elif float(row["income"]) > 0:
             for category, keywords in income_classification_map.items():
                 for keyword in keywords:
                     if keyword == activity :

@@ -1,9 +1,14 @@
 import json
+from pathlib import Path
 
 def create_summed_classifications(data):
-    with open("expense_classification.json", "r") as f:
+    HERE = Path(__file__).resolve().parent
+    expenses = HERE / "expense_classification.json"
+    incomes = HERE / "income_classification.json"
+
+    with open(expenses, "r") as f:
         expense_data = json.load(f)
-    with open("income_classification.json", "r") as f:
+    with open(incomes, "r") as f:
         income_data = json.load(f)
 
     # Build a unified map of classifications with initial totals of 0
