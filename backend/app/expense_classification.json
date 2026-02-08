@@ -5,19 +5,64 @@
             "RAY'S VARIETY     _M",
             "UCC TIM'S EXPRE   _M",
             "UCC TIM'S UPPER   _M",
-            "Spotify P3    7.16_V"
+            "Spotify P3    7.16_V",
+            "OPENAI *CH   22.40_V",
+            "SOHO              _M",
+            "UBER CANADA/UBE   _V",
+            "SEND E-TFR ***Byv",
+            "LOST LOVE         _M",
+            "TST-Updated - T   _M"
         ]
     },
     {
         "classification": "02 - Snack",
         "expenses_attributed": [
-            "RAY'S VARIETY     _M"
+            "RAY'S VARIETY     _M",
+            "7-ELEVEN STORE    _M",
+            "Letus Rent       MSP",
+            "Amazon.ca Prime   _V",
+            "COMPASS VENDING",
+            "AMZN Mktp CA      _V",
+            "SEND E-TFR ***unS",
+            "0826-VAN SWEET    _M",
+            "A W # 1577        _M",
+            "UBER CANADA/UBE   _V",
+            "SEND E-TFR ***Mjg",
+            "SEND E-TFR ***Pa7",
+            "DOMINOS PIZZA #   _F",
+            "SEND E-TFR ***jVu",
+            "SEND E-TFR ***G2X",
+            "EAST SIDE MARIO   _M",
+            "NATURAL TIM'S     _M"
         ]
     },
     {
         "classification": "03 - food out",
         "expenses_attributed": [
-            "UBER* EATS PEND   _V"
+            "UBER* EATS PEND   _V",
+            "HOLY CANNABIS     _M",
+            "UBER* EATS        _V",
+            "SEND E-TFR ***T9d",
+            "THE BELFORT       _V",
+            "UBER CANADA/UBE   _V",
+            "SEND E-TFR ***SqF",
+            "METRO  247        _F",
+            "WESTERN IVEY HB   _V"
+        ]
+    },
+    {
+        "classification": "04 - Going out- bars",
+        "expenses_attributed": [
+            "SOHO              _M",
+            "7 ELEVEN STORE    _M",
+            "IC* INSTACART     _V",
+            "SEND E-TFR ***KWq",
+            "UBER CANADA/UBE   _V",
+            "UBER* PENDING     _V",
+            "HOLY CANNABIS     _F",
+            "SEND E-TFR ***jkD",
+            "PTS TO:  94006041995",
+            "SEND E-TFR ***eFb"
         ]
     }
 ]
