@@ -104,7 +104,7 @@ export default function DeleteConfirmModal({
             />
 
             {/* Modal */}
-            <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 p-6">
+            <div className="relative bg-zinc-900 rounded-xl shadow-2xl w-full max-w-md mx-4 p-6">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -114,13 +114,13 @@ export default function DeleteConfirmModal({
                             </svg>
                         </div>
                         <div>
-                            <h3 className="text-lg font-bold text-slate-900">Confirm Deletion</h3>
-                            <p className="text-sm text-slate-600">This action cannot be undone</p>
+                            <h3 className="text-lg font-bold text-white">Confirm Deletion</h3>
+                            <p className="text-sm text-zinc-400">This action cannot be undone</p>
                         </div>
                     </div>
                     <button
                         onClick={handleClose}
-                        className="text-slate-400 hover:text-slate-600 transition-colors"
+                        className="text-zinc-500 hover:text-zinc-400 transition-colors"
                         disabled={isDeleting}
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,14 +161,14 @@ export default function DeleteConfirmModal({
                 {/* Re-authentication Form */}
                 <div className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
+                        <label className="block text-sm font-medium text-zinc-300 mb-2">
                             Confirm your username
                         </label>
                         <input
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-2.5 border border-zinc-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                             placeholder="Enter your username"
                             disabled={isDeleting}
                             autoFocus
@@ -176,7 +176,7 @@ export default function DeleteConfirmModal({
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
+                        <label className="block text-sm font-medium text-zinc-300 mb-2">
                             Confirm your password
                         </label>
                         <input
@@ -184,7 +184,7 @@ export default function DeleteConfirmModal({
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             onKeyPress={(e) => e.key === 'Enter' && handleDelete()}
-                            className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-2.5 border border-zinc-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                             placeholder="Enter your password"
                             disabled={isDeleting}
                         />
@@ -207,7 +207,7 @@ export default function DeleteConfirmModal({
                         <button
                             onClick={handleClose}
                             disabled={isDeleting}
-                            className="flex-1 px-4 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-lg transition-colors disabled:opacity-60"
+                            className="flex-1 px-4 py-2.5 bg-zinc-700 hover:bg-zinc-600 text-zinc-300 font-medium rounded-lg transition-colors disabled:opacity-60"
                         >
                             Cancel
                         </button>

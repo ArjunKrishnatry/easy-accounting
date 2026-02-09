@@ -118,7 +118,7 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <p className="text-slate-600">Loading classification options...</p>
+                    <p className="text-zinc-300">Loading classification options...</p>
                 </div>
             </div>
         );
@@ -130,35 +130,35 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
 
     return (
         <div className="space-y-6">
-            <div className="bg-primary-50 border border-primary-200 rounded-lg p-6">
-                <h2 className="text-xl font-bold text-slate-900 mb-4">
+            <div className="bg-primary-900/30 border border-primary-800 rounded-lg p-6">
+                <h2 className="text-xl font-bold text-white mb-4">
                     {selectedOption ? `Selected: ${selectedOption}` : "Select Classification"}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div className="bg-white rounded-lg p-4 border border-slate-200">
-                        <p className="text-xs font-medium text-slate-500 mb-1">Activity</p>
-                        <p className="text-sm font-semibold text-slate-900">{activity}</p>
+                    <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-700">
+                        <p className="text-xs font-medium text-zinc-400 mb-1">Activity</p>
+                        <p className="text-sm font-semibold text-white">{activity}</p>
                     </div>
-                    <div className="bg-white rounded-lg p-4 border border-slate-200">
-                        <p className="text-xs font-medium text-slate-500 mb-1">Type</p>
+                    <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-700">
+                        <p className="text-xs font-medium text-zinc-400 mb-1">Type</p>
                         <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                             transactionType === "Income" ? incomeClass : expenseClass
                         }`}>
                             {transactionType}
                         </span>
                     </div>
-                    <div className="bg-white rounded-lg p-4 border border-slate-200">
-                        <p className="text-xs font-medium text-slate-500 mb-1">Amount</p>
-                        <p className="text-sm font-semibold text-slate-900">${amt}</p>
+                    <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-700">
+                        <p className="text-xs font-medium text-zinc-400 mb-1">Amount</p>
+                        <p className="text-sm font-semibold text-white">${amt}</p>
                     </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-4 border border-slate-200">
-                    <p className="text-sm text-slate-600 mb-2">
+                <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-700">
+                    <p className="text-sm text-zinc-300 mb-2">
                         Remaining: <span className="font-semibold text-primary-600">{remaninglen + 1}</span> of {RemainingClassifications.length}
                     </p>
-                    <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="w-full bg-zinc-700 rounded-full h-2">
                         <div
                             className="bg-primary-600 h-2 rounded-full transition-all duration-300"
                             style={{ width: `${progressPercentage}%` }}
@@ -196,7 +196,7 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
             ) : (
                 <div className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
+                        <label className="block text-sm font-medium text-zinc-300 mb-2">
                             New Classification Name
                         </label>
                         <input
@@ -204,7 +204,7 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
                             value={newClassificationName}
                             onChange={(e) => setNewClassificationName(e.target.value)}
                             placeholder={`Enter new ${transactionType.toLowerCase()} classification`}
-                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-slate-900"
+                            className="w-full px-4 py-3 rounded-lg border border-zinc-600 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-white"
                         />
                     </div>
                     <div className="flex gap-3">
@@ -219,7 +219,7 @@ export default function ClassificationSelector({ setShowClassifier, RemainingCla
                                 setShowNewClassificationForm(false);
                                 setNewClassificationName("");
                             }}
-                            className="px-6 py-3 bg-slate-500 hover:bg-slate-600 text-white rounded-lg transition-colors duration-200 font-medium"
+                            className="px-6 py-3 bg-zinc-600 hover:bg-zinc-500 text-white rounded-lg transition-colors duration-200 font-medium"
                         >
                             Cancel
                         </button>

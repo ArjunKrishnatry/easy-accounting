@@ -50,7 +50,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-4">
       <div className="w-full max-w-md">
         {/* Logo/Title Area */}
         <div className="text-center mb-8">
@@ -60,17 +60,17 @@ export default function Login() {
             </svg>
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">EasyAccounting</h1>
-          <p className="text-slate-400">Sign in to manage your finances</p>
+          <p className="text-zinc-400">Sign in to manage your finances</p>
         </div>
 
         {/* Login Card */}
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <h2 className="text-2xl font-semibold text-slate-900 mb-6">Welcome Back</h2>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl p-8">
+          <h2 className="text-2xl font-semibold text-white mb-6">Welcome Back</h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Username Input */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-zinc-300 mb-2">
                 Username
               </label>
               <input
@@ -78,7 +78,7 @@ export default function Login() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-slate-900 placeholder-slate-400"
+                className="w-full px-4 py-3 rounded-lg border border-zinc-700 bg-zinc-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-white placeholder-zinc-500"
                 placeholder="Enter your username"
                 autoComplete="username"
                 disabled={isSubmitting}
@@ -88,7 +88,7 @@ export default function Login() {
 
             {/* Password Input */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-zinc-300 mb-2">
                 Password
               </label>
               <input
@@ -96,7 +96,7 @@ export default function Login() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-slate-900 placeholder-slate-400"
+                className="w-full px-4 py-3 rounded-lg border border-zinc-700 bg-zinc-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-white placeholder-zinc-500"
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 disabled={isSubmitting}
@@ -105,12 +105,12 @@ export default function Login() {
 
             {/* Error Message */}
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="bg-red-900/50 border border-red-800 rounded-lg p-4">
                 <div className="flex items-start">
-                  <svg className="w-5 h-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5 text-red-400 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                   </svg>
-                  <p className="text-sm text-red-800">{error}</p>
+                  <p className="text-sm text-red-300">{error}</p>
                 </div>
               </div>
             )}
@@ -119,7 +119,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
@@ -137,14 +137,14 @@ export default function Login() {
 
           {/* Helper Text */}
           <div className="mt-6 text-center">
-            <p className="text-sm text-slate-500">
-              Default credentials: Username: <span className="font-mono font-semibold">Arjun</span>, Password: <span className="font-mono font-semibold">asdf</span>
+            <p className="text-sm text-zinc-500">
+              Default credentials: Username: <span className="font-mono font-semibold text-zinc-400">duke</span>, Password: <span className="font-mono font-semibold text-zinc-400">duke</span>
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="text-center text-slate-400 text-sm mt-8">
+        <p className="text-center text-zinc-500 text-sm mt-8">
           Secure financial management made easy
         </p>
       </div>

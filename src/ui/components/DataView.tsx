@@ -70,8 +70,8 @@ export default function DataView({ data }: DataViewProps) {
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white border border-slate-200 rounded-lg shadow-lg p-3">
-          <p className="font-semibold text-slate-900">{payload[0].name}</p>
+        <div className="bg-zinc-800 border border-zinc-700 rounded-lg shadow-lg p-3">
+          <p className="font-semibold text-white">{payload[0].name}</p>
           <p className="text-lg font-bold text-primary-600">${payload[0].value.toFixed(2)}</p>
         </div>
       );
@@ -87,7 +87,7 @@ export default function DataView({ data }: DataViewProps) {
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
-          <p className="text-slate-600">Analyzing your data...</p>
+          <p className="text-zinc-300">Analyzing your data...</p>
         </div>
       </div>
     );
@@ -129,8 +129,8 @@ export default function DataView({ data }: DataViewProps) {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {expenseChartData.length > 0 && (
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
-            <h3 className="text-lg font-bold text-slate-900 mb-4">Expense Breakdown</h3>
+          <div className="bg-zinc-800 rounded-xl border border-zinc-700 p-6">
+            <h3 className="text-lg font-bold text-white mb-4">Expense Breakdown</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -154,8 +154,8 @@ export default function DataView({ data }: DataViewProps) {
         )}
 
         {incomeChartData.length > 0 && (
-          <div className="bg-white rounded-xl border border-slate-200 p-6">
-            <h3 className="text-lg font-bold text-slate-900 mb-4">Income Breakdown</h3>
+          <div className="bg-zinc-800 rounded-xl border border-zinc-700 p-6">
+            <h3 className="text-lg font-bold text-white mb-4">Income Breakdown</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -180,29 +180,29 @@ export default function DataView({ data }: DataViewProps) {
       </div>
 
       {/* Summary Table */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-        <div className="px-6 py-4 bg-slate-50 border-b border-slate-200">
-          <h2 className="text-lg font-bold text-slate-900">Classification Summary</h2>
+      <div className="bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden">
+        <div className="px-6 py-4 bg-zinc-900 border-b border-zinc-700">
+          <h2 className="text-lg font-bold text-white">Classification Summary</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-slate-200">
-            <thead className="bg-slate-50">
+            <thead className="bg-zinc-900">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-slate-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-zinc-300 uppercase tracking-wider">
                   Classification
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-slate-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-medium text-zinc-300 uppercase tracking-wider">
                   Expense
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-slate-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-medium text-zinc-300 uppercase tracking-wider">
                   Income
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-slate-200">
+            <tbody className="bg-zinc-800 divide-y divide-slate-200">
               {summedclassifications.map((item, index) => (
-                <tr key={index} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
+                <tr key={index} className="hover:bg-zinc-900 transition-colors">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                     {item[0]}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-right text-red-600 font-semibold">
@@ -214,7 +214,7 @@ export default function DataView({ data }: DataViewProps) {
                 </tr>
               ))}
               <tr className="bg-slate-100 font-bold">
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                   Grand Total
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-right text-red-700">
@@ -237,7 +237,7 @@ export default function DataView({ data }: DataViewProps) {
       }`}>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-slate-600 mb-1">Net Position</p>
+            <p className="text-sm font-medium text-zinc-300 mb-1">Net Position</p>
             <p className={`text-3xl font-bold ${
               totalIncome - totalExpense >= 0 ? 'text-green-700' : 'text-red-700'
             }`}>

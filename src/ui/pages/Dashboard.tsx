@@ -164,9 +164,9 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="fixed inset-0 flex flex-col bg-slate-100">
+    <div className="fixed inset-0 flex flex-col bg-zinc-900">
       {/* Top Navigation Bar - Fixed at top */}
-      <header className="bg-white border-b border-slate-200 shadow-sm">
+      <header className="bg-zinc-950 border-b border-zinc-800 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Title */}
@@ -177,16 +177,16 @@ export default function Dashboard() {
                 </svg>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">EasyAccounting</h1>
-                <p className="text-sm text-slate-500">Financial Management</p>
+                <h1 className="text-xl font-bold text-white">EasyAccounting</h1>
+                <p className="text-sm text-zinc-400">Financial Management</p>
               </div>
             </div>
 
             {/* User Info and Actions */}
             <div className="flex items-center space-x-4">
               <div className="text-right hidden sm:block">
-                <p className="text-sm font-medium text-slate-900">Welcome, {user?.name}!</p>
-                <p className="text-xs text-slate-500">Manage your finances</p>
+                <p className="text-sm font-medium text-white">Welcome, {user?.name}!</p>
+                <p className="text-xs text-zinc-400">Manage your finances</p>
               </div>
               {/* Upload Button */}
               <input
@@ -216,7 +216,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={() => navigate('/settings')}
-                className="flex items-center justify-center p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors duration-200"
+                className="flex items-center justify-center p-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors duration-200"
                 title="Settings"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +226,7 @@ export default function Dashboard() {
               </button>
               <button
                 onClick={handleLogout}
-                className="flex items-center space-x-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors duration-200"
+                className="flex items-center space-x-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors duration-200"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -244,8 +244,8 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-full">
             {/* Sidebar - File List */}
             <div className="lg:col-span-1 min-h-0">
-              <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 h-full flex flex-col">
-                <h2 className="text-lg font-semibold text-slate-900 mb-4">Your Files</h2>
+              <div className="bg-zinc-800 rounded-xl shadow-sm border border-zinc-700 p-6 h-full flex flex-col">
+                <h2 className="text-lg font-semibold text-white mb-4">Your Files</h2>
                 <div className="flex-1 overflow-y-auto min-h-0">
                   <SideTable
                     uploadedFiles={uploadedFiles}
@@ -260,11 +260,11 @@ export default function Dashboard() {
 
             {/* Main Content Area */}
             <div className="lg:col-span-3 min-h-0">
-              <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 h-full flex flex-col">
+              <div className="bg-zinc-800 rounded-xl shadow-sm border border-zinc-700 p-6 h-full flex flex-col">
                 {/* View Toggle */}
                 {!showClassifier && parsedData.length > 0 && (
                   <div className="mb-6 flex items-center justify-between">
-                    <h2 className="text-lg font-semibold text-slate-900">
+                    <h2 className="text-lg font-semibold text-white">
                       {showTableView ? 'Transaction Table' : 'Data Visualization'}
                     </h2>
                     <button
@@ -294,11 +294,11 @@ export default function Dashboard() {
                     )
                   ) : (
                     <div className="text-center py-12">
-                      <svg className="mx-auto h-12 w-12 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="mx-auto h-12 w-12 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                       </svg>
-                      <h3 className="mt-2 text-sm font-medium text-slate-900">No data selected</h3>
-                      <p className="mt-1 text-sm text-slate-500">Upload a file or select one from the sidebar to get started.</p>
+                      <h3 className="mt-2 text-sm font-medium text-white">No data selected</h3>
+                      <p className="mt-1 text-sm text-zinc-400">Upload a file or select one from the sidebar to get started.</p>
                     </div>
                   )}
                 </div>

@@ -2,6 +2,12 @@
 "appId": "com.a-krishnatry.easyaccounting",
 "files": ["dist-electron/**", "dist-react/**"],
 "icon": "./desktopIcon.png",
+"extraResources": [
+    {
+        "from": "backend/dist/backend_server",
+        "to": "backend"
+    }
+],
 
 "mac":{
     "target": ["dmg"]

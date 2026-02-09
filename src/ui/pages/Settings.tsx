@@ -128,15 +128,15 @@ export default function Settings() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-zinc-950">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 fixed top-0 left-0 right-0 z-50 shadow-sm w-full">
+      <header className="bg-zinc-900 border-b border-zinc-800 fixed top-0 left-0 right-0 z-50 shadow-sm w-full">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate('/dashboard')}
-                className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors"
+                className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -145,8 +145,8 @@ export default function Settings() {
               </button>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-slate-600">
-                Logged in as <strong className="text-slate-900">{user?.name}</strong>
+              <span className="text-sm text-zinc-400">
+                Logged in as <strong className="text-white">{user?.name}</strong>
               </span>
               <button
                 onClick={handleLogout}
@@ -162,54 +162,54 @@ export default function Settings() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 py-8 mt-[88px]">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">Settings</h1>
-          <p className="text-slate-600 mt-2">Manage your account settings and preferences</p>
+          <h1 className="text-3xl font-bold text-white">Settings</h1>
+          <p className="text-zinc-400 mt-2">Manage your account settings and preferences</p>
         </div>
 
         <div className="space-y-6">
           {/* Account Settings Section */}
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-            <h2 className="text-xl font-semibold text-slate-900 mb-6">Account Settings</h2>
+          <div className="bg-zinc-900 rounded-xl shadow-sm border border-zinc-800 p-6">
+            <h2 className="text-xl font-semibold text-white mb-6">Account Settings</h2>
 
             {/* Change Username */}
-            <div className="mb-8 pb-8 border-b border-slate-200">
-              <h3 className="text-lg font-medium text-slate-900 mb-4">Change Username</h3>
+            <div className="mb-8 pb-8 border-b border-zinc-800">
+              <h3 className="text-lg font-medium text-white mb-4">Change Username</h3>
               <form onSubmit={handleUsernameChange} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-zinc-300 mb-2">
                     Current Username
                   </label>
                   <input
                     type="text"
                     value={user?.name || ''}
                     disabled
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-slate-50 text-slate-500"
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-400"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-zinc-300 mb-2">
                     New Username
                   </label>
                   <input
                     type="text"
                     value={newUsername}
                     onChange={(e) => setNewUsername(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-slate-900"
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-700 bg-zinc-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-white"
                     placeholder="Enter new username"
                     disabled={isSubmittingUsername}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-zinc-300 mb-2">
                     Current Password
                   </label>
                   <input
                     type="password"
                     value={usernamePassword}
                     onChange={(e) => setUsernamePassword(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-slate-900"
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-700 bg-zinc-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-white"
                     placeholder="Enter your current password"
                     disabled={isSubmittingUsername}
                   />
@@ -239,45 +239,45 @@ export default function Settings() {
 
             {/* Change Password */}
             <div>
-              <h3 className="text-lg font-medium text-slate-900 mb-4">Change Password</h3>
+              <h3 className="text-lg font-medium text-white mb-4">Change Password</h3>
               <form onSubmit={handlePasswordChange} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-zinc-300 mb-2">
                     Current Password
                   </label>
                   <input
                     type="password"
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-slate-900"
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-700 bg-zinc-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-white"
                     placeholder="Enter your current password"
                     disabled={isSubmittingPassword}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-zinc-300 mb-2">
                     New Password
                   </label>
                   <input
                     type="password"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-slate-900"
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-700 bg-zinc-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-white"
                     placeholder="Enter new password"
                     disabled={isSubmittingPassword}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                  <label className="block text-sm font-medium text-zinc-300 mb-2">
                     Confirm New Password
                   </label>
                   <input
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-slate-900"
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-700 bg-zinc-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-white"
                     placeholder="Confirm new password"
                     disabled={isSubmittingPassword}
                   />
@@ -307,29 +307,29 @@ export default function Settings() {
           </div>
 
           {/* Appearance Settings Section */}
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-            <h2 className="text-xl font-semibold text-slate-900 mb-6">Appearance</h2>
+          <div className="bg-zinc-900 rounded-xl shadow-sm border border-zinc-800 p-6">
+            <h2 className="text-xl font-semibold text-white mb-6">Appearance</h2>
 
             <div>
-              <h3 className="text-lg font-medium text-slate-900 mb-4">Theme</h3>
+              <h3 className="text-lg font-medium text-white mb-4">Theme</h3>
               <div className="flex gap-4">
                 <button
                   onClick={() => setTheme('light')}
                   className={`flex-1 p-4 rounded-lg border-2 transition-all ${
                     theme === 'light'
                       ? 'border-primary-500 bg-primary-50'
-                      : 'border-slate-200 hover:border-slate-300'
+                      : 'border-zinc-800 hover:border-zinc-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white border border-slate-300 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-700 flex items-center justify-center">
                       <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div className="text-left">
-                      <div className="font-semibold text-slate-900">Light</div>
-                      <div className="text-sm text-slate-600">Bright and clear</div>
+                      <div className="font-semibold text-white">Light</div>
+                      <div className="text-sm text-zinc-400">Bright and clear</div>
                     </div>
                   </div>
                 </button>
@@ -339,18 +339,18 @@ export default function Settings() {
                   className={`flex-1 p-4 rounded-lg border-2 transition-all ${
                     theme === 'dark'
                       ? 'border-primary-500 bg-primary-50'
-                      : 'border-slate-200 hover:border-slate-300'
+                      : 'border-zinc-800 hover:border-zinc-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-zinc-300" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                       </svg>
                     </div>
                     <div className="text-left">
-                      <div className="font-semibold text-slate-900">Dark</div>
-                      <div className="text-sm text-slate-600">Easy on the eyes</div>
+                      <div className="font-semibold text-white">Dark</div>
+                      <div className="text-sm text-zinc-400">Easy on the eyes</div>
                     </div>
                   </div>
                 </button>

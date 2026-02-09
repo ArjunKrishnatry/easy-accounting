@@ -1,10 +1,9 @@
 import json
 from pathlib import Path
+from .classification_module import get_classification_paths
 
 def create_summed_classifications(data):
-    HERE = Path(__file__).resolve().parent
-    expenses = HERE / "expense_classification.json"
-    incomes = HERE / "income_classification.json"
+    expenses, incomes = get_classification_paths()
 
     with open(expenses, "r") as f:
         expense_data = json.load(f)

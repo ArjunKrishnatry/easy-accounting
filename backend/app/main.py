@@ -10,6 +10,7 @@ from .data_display_module import *  # Assuming classify.py is in the same direct
 import io
 import json
 import os
+import sys
 from datetime import datetime
 import uuid
 from pathlib import Path
@@ -18,20 +19,40 @@ app = FastAPI()
 
 origins = [
     "http://localhost:5123",
-    "https://your-production-domain.com",  # Replace with your production domain
+    "http://127.0.0.1:5123",
 ]
 
+# In production (bundled app), we need to allow all origins since
+# Electron loads from file:// protocol which sends "null" or no origin
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"] if getattr(sys, 'frozen', False) else origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)   
+)
+
+# Health check endpoint for verifying backend is running
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+# Determine data directory based on whether running frozen (bundled) or not
+def get_data_dir():
+    if getattr(sys, 'frozen', False):
+        # Running as bundled app - use user's home directory for data
+        data_dir = Path.home() / ".easyaccounting"
+        data_dir.mkdir(exist_ok=True)
+        return data_dir
+    else:
+        # Development mode - use current directory
+        return Path(os.getcwd())
+
+DATA_DIR = get_data_dir()
 
 # File storage
-STORAGE_FILE = "uploaded_files.json"
-SESSIONS_FILE = "sessions.json"
+STORAGE_FILE = str(DATA_DIR / "uploaded_files.json")
+SESSIONS_FILE = str(DATA_DIR / "sessions.json")
 
 def load_stored_files():
     if os.path.exists(STORAGE_FILE):
@@ -70,9 +91,22 @@ def save_sessions(sessions):
     with open(SESSIONS_FILE, 'w') as f:
         json.dump(sessions, f, indent=2)
 
-def get_user_info():
+def get_user_info_path():
+    """Get the path to user_information.json, copying it to user data dir if needed."""
+    import shutil
     HERE = Path(__file__).resolve().parent
-    userinformation = HERE / "user_information.json"
+    bundled_user_info = HERE / "user_information.json"
+
+    if getattr(sys, 'frozen', False):
+        user_info_path = DATA_DIR / "user_information.json"
+        if not user_info_path.exists():
+            shutil.copy(bundled_user_info, user_info_path)
+        return user_info_path
+    else:
+        return bundled_user_info
+
+def get_user_info():
+    userinformation = get_user_info_path()
     with open(userinformation, "r") as f:
         data = json.load(f)
         # Handle both array and object format
@@ -81,8 +115,7 @@ def get_user_info():
         return data
 
 def save_user_info(user_data):
-    HERE = Path(__file__).resolve().parent
-    userinformation = HERE / "user_information.json"
+    userinformation = get_user_info_path()
     with open(userinformation, "w") as f:
         json.dump([user_data], f, indent=2)
 
