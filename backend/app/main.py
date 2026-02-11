@@ -193,6 +193,33 @@ def get_file_data(file_id: str):
         return {"data": file["data"]}
     raise HTTPException(status_code=404, detail="File not found")
 
+@app.get("/folder-data/{folder_id}")
+def get_folder_data(folder_id: str):
+    """Get aggregated data from all files in a folder"""
+    stored_files = load_stored_files()
+
+    # Find the folder
+    folder = None
+    for item in stored_files:
+        if item.get("type") == "folder" and item.get("id") == folder_id:
+            folder = item
+            break
+
+    if not folder:
+        raise HTTPException(status_code=404, detail="Folder not found")
+
+    # Aggregate data from all files in the folder
+    aggregated_data = []
+    for file in folder.get("files", []):
+        if "data" in file:
+            aggregated_data.extend(file["data"])
+
+    return {
+        "data": aggregated_data,
+        "folderName": folder.get("name"),
+        "fileCount": len(folder.get("files", []))
+    }
+
 @app.delete("/file/{file_id}")
 def delete_file(file_id: str):
     stored_files = load_stored_files()

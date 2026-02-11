@@ -79,6 +79,31 @@ export default function DataView({ data }: DataViewProps) {
     return null;
   };
 
+  const renderCustomLabel = ({ name, percent, cx, cy, midAngle, innerRadius, outerRadius }: any) => {
+    const RADIAN = Math.PI / 180;
+    const radius = outerRadius * 1.2;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    // Truncate name if too long
+    const maxLength = 12;
+    const displayName = name.length > maxLength ? name.substring(0, maxLength) + '...' : name;
+    const percentText = `${(percent * 100).toFixed(0)}%`;
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#e4e4e7"
+        textAnchor={x > cx ? 'start' : 'end'}
+        dominantBaseline="central"
+        fontSize={10}
+      >
+        {displayName} {percentText}
+      </text>
+    );
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -138,8 +163,8 @@ export default function DataView({ data }: DataViewProps) {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ name, percent }: any) => `${name} ${(percent * 100).toFixed(0)}%`}
-                  outerRadius={100}
+                  label={renderCustomLabel}
+                  outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
                 >
@@ -163,8 +188,8 @@ export default function DataView({ data }: DataViewProps) {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ name, percent }: any) => `${name} ${(percent * 100).toFixed(0)}%`}
-                  outerRadius={100}
+                  label={renderCustomLabel}
+                  outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
                 >

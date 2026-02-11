@@ -19,7 +19,21 @@
             "E-TRANSFER ***nvZ",
             "E-TRANSFER ***UbY",
             "E-TRANSFER ***yRd",
-            "E-TRANSFER ***dRQ"
+            "E-TRANSFER ***dRQ",
+            "E-TRANSFER ***VBV",
+            "E-TRANSFER ***58Y",
+            "E-TRANSFER ***eFn"
+        ]
+    },
+    {
+        "classification": "IN: 02 - E-transfer",
+        "income_attributed": [
+            "E-TRANSFER ***eFn",
+            "E-TRANSFER ***jqJ",
+            "E-TRANSFER ***G2H",
+            "E-TRANSFER ***Yxb",
+            "E-TRANSFER ***hXV",
+            "E-TRANSFER ***hR2"
         ]
     }
 ]

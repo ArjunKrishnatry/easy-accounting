@@ -37,6 +37,8 @@ export default function Dashboard() {
   const [remaningclassifications, setRemaningClassifications] = useState<any[]>([]);
   const [uploadedFiles, setUploadedFiles] = useState<FileOrFolder[]>([]);
   const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
+  const [selectedFolderId, setSelectedFolderId] = useState<string | null>(null);
+  const [selectedFolderName, setSelectedFolderName] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [deleteModal, setDeleteModal] = useState<{
     isOpen: boolean;
@@ -71,10 +73,27 @@ export default function Dashboard() {
       if (response.data.data) {
         setParsedData(response.data.data);
         setSelectedFileId(fileId);
+        setSelectedFolderId(null);
+        setSelectedFolderName(null);
         setShowClassifier(false);
       }
     } catch (error) {
       console.error('Error loading file data:', error);
+    }
+  };
+
+  const handleFolderSelect = async (folderId: string) => {
+    try {
+      const response = await api.get(`/folder-data/${folderId}`);
+      if (response.data.data) {
+        setParsedData(response.data.data);
+        setSelectedFolderId(folderId);
+        setSelectedFolderName(response.data.folderName);
+        setSelectedFileId(null);
+        setShowClassifier(false);
+      }
+    } catch (error) {
+      console.error('Error loading folder data:', error);
     }
   };
 
@@ -159,6 +178,11 @@ export default function Dashboard() {
     // Clear selection if the deleted item was selected
     if (deleteModal.itemId === selectedFileId) {
       setSelectedFileId(null);
+      setParsedData([]);
+    }
+    if (deleteModal.itemId === selectedFolderId) {
+      setSelectedFolderId(null);
+      setSelectedFolderName(null);
       setParsedData([]);
     }
   };
@@ -250,7 +274,9 @@ export default function Dashboard() {
                   <SideTable
                     uploadedFiles={uploadedFiles}
                     onFileSelect={handleFileSelect}
+                    onFolderSelect={handleFolderSelect}
                     selectedFileId={selectedFileId}
+                    selectedFolderId={selectedFolderId}
                     onRefresh={loadStoredFiles}
                     onDelete={handleDeleteClick}
                   />
@@ -264,9 +290,16 @@ export default function Dashboard() {
                 {/* View Toggle */}
                 {!showClassifier && parsedData.length > 0 && (
                   <div className="mb-6 flex items-center justify-between">
-                    <h2 className="text-lg font-semibold text-white">
-                      {showTableView ? 'Transaction Table' : 'Data Visualization'}
-                    </h2>
+                    <div>
+                      <h2 className="text-lg font-semibold text-white">
+                        {showTableView ? 'Transaction Table' : 'Data Visualization'}
+                      </h2>
+                      {selectedFolderName && (
+                        <p className="text-sm text-zinc-400 mt-1">
+                          Folder: <span className="text-primary-400 font-medium">{selectedFolderName}</span> (Combined view)
+                        </p>
+                      )}
+                    </div>
                     <button
                       onClick={() => setShowTableView(!showTableView)}
                       className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-200 font-medium"

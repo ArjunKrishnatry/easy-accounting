@@ -1,0 +1,1408 @@
+[
+  {
+    "id": "f8aca419-29b6-4acd-9443-2890e71f51fd",
+    "type": "folder",
+    "name": "2025",
+    "createdDate": "2026-02-11T16:00:27.006043",
+    "files": [
+      {
+        "id": "d9594fb1-aa1e-4e73-967f-009b9bd38e8d",
+        "filename": "Jan2025accounts.csv",
+        "uploadDate": "2026-02-11T16:00:39.160765",
+        "totalRecords": 10,
+        "totalExpense": 89.96,
+        "totalIncome": 21.93,
+        "data": [
+          {
+            "date": "2025-01-31",
+            "activity": "UCC TIM'S EXPRE   _M",
+            "expense": 2.29,
+            "income": 0.0,
+            "total": 1345.04,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-01-30",
+            "activity": "Spotify P3    7.16_V",
+            "expense": 7.16,
+            "income": 0.0,
+            "total": 1374.26,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-01-30",
+            "activity": "UCC TIM'S UPPER   _M",
+            "expense": 11.45,
+            "income": 0.0,
+            "total": 1381.42,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-01-30",
+            "activity": "UCC TIM'S EXPRE   _M",
+            "expense": 2.19,
+            "income": 0.0,
+            "total": 1392.87,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-01-30",
+            "activity": "RAY'S VARIETY     _M",
+            "expense": 7.9,
+            "income": 0.0,
+            "total": 1395.06,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-01-31",
+            "activity": "UBER* EATS        _V",
+            "expense": 22.04,
+            "income": 0.0,
+            "total": 1344.93,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-01-30",
+            "activity": "UBER* EATS PEND   _V",
+            "expense": 21.93,
+            "income": 0.0,
+            "total": 1352.33,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-01-31",
+            "activity": "SEND E-TFR ***eFb",
+            "expense": 10.0,
+            "income": 0.0,
+            "total": 1334.93,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-01-30",
+            "activity": "PTS TO:  94006041995",
+            "expense": 5.0,
+            "income": 0.0,
+            "total": 1347.33,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-01-31",
+            "activity": "UBER* EA REV 01/30_V",
+            "expense": 0.0,
+            "income": 21.93,
+            "total": 1366.97,
+            "classification": "IN: 01 - Reimbursements"
+          }
+        ]
+      },
+      {
+        "id": "73108204-e01b-478d-9d95-707acff31dad",
+        "filename": "Apr2025accounts.csv",
+        "uploadDate": "2026-02-11T16:01:12.055942",
+        "totalRecords": 94,
+        "totalExpense": 2894.75,
+        "totalIncome": 2818.38,
+        "data": [
+          {
+            "date": "2025-04-01",
+            "activity": "OPENAI *CH   22.40_V",
+            "expense": 33.38,
+            "income": 0.0,
+            "total": 1451.08,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "UCC TIM'S UPPER   _M",
+            "expense": 10.0,
+            "income": 0.0,
+            "total": 30.25,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "Spotify P3    7.16_V",
+            "expense": 7.16,
+            "income": 0.0,
+            "total": 1443.58,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-04-01",
+            "activity": "UCC TIM'S UPPER   _M",
+            "expense": 12.82,
+            "income": 0.0,
+            "total": 1433.75,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "Spotify P3    7.16_V",
+            "expense": 7.16,
+            "income": 0.0,
+            "total": 662.4,
+            "classification": "01 - Snack"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "RAY'S VARIETY     _M",
+            "expense": 16.0,
+            "income": 0.0,
+            "total": 7.44,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-04",
+            "activity": "Amazon.ca Prime   _V",
+            "expense": 11.29,
+            "income": 0.0,
+            "total": 546.46,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "AMZN Mktp CA      _V",
+            "expense": 47.49,
+            "income": 0.0,
+            "total": 669.56,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "RAY'S VARIETY     _M",
+            "expense": 16.0,
+            "income": 0.0,
+            "total": 47.29,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-07",
+            "activity": "RAY'S VARIETY     _M",
+            "expense": 16.25,
+            "income": 0.0,
+            "total": 509.73,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-09",
+            "activity": "AMZN Mktp CA      _V",
+            "expense": 27.11,
+            "income": 0.0,
+            "total": 298.66,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-08",
+            "activity": "RAY'S VARIETY     _M",
+            "expense": 16.25,
+            "income": 0.0,
+            "total": 325.77,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-11",
+            "activity": "NATURAL TIM'S     _M",
+            "expense": 5.06,
+            "income": 0.0,
+            "total": 352.88,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-01",
+            "activity": "Letus Rent       MSP",
+            "expense": 875.0,
+            "income": 0.0,
+            "total": 558.75,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-09",
+            "activity": "RAY'S VARIETY     _M",
+            "expense": 30.0,
+            "income": 0.0,
+            "total": 268.66,
+            "classification": "02 - Snack"
+          },
+          {
+            "date": "2025-04-16",
+            "activity": "HOLY CANNABIS     _M",
+            "expense": 18.75,
+            "income": 0.0,
+            "total": 50.81,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "HOLY CANNABIS     _M",
+            "expense": 10.84,
+            "income": 0.0,
+            "total": 28.44,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "HOLY CANNABIS     _M",
+            "expense": 12.31,
+            "income": 0.0,
+            "total": 6.16,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "METRO  247        _F",
+            "expense": 21.21,
+            "income": 0.0,
+            "total": 1422.37,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "HOLY CANNABIS     _M",
+            "expense": 4.28,
+            "income": 0.0,
+            "total": 1418.09,
+            "classification": "03 - food out"
+          },
+          {
+            "date": "2025-04-15",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 10.95,
+            "income": 0.0,
+            "total": 42.82,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 10.84,
+            "income": 0.0,
+            "total": 2.27,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-11",
+            "activity": "7 ELEVEN STORE    _M",
+            "expense": 4.19,
+            "income": 0.0,
+            "total": 348.69,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-08",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 7.81,
+            "income": 0.0,
+            "total": 492.02,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 16.69,
+            "income": 0.0,
+            "total": 35.75,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-07",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 10.95,
+            "income": 0.0,
+            "total": 490.88,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-23",
+            "activity": "7 ELEVEN STORE    _M",
+            "expense": 4.51,
+            "income": 0.0,
+            "total": 23.76,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-24",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 20.19,
+            "income": 0.0,
+            "total": 3.57,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "PTS TO:  94006041995",
+            "expense": 5.0,
+            "income": 0.0,
+            "total": 55.78,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-04",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 28.25,
+            "income": 0.0,
+            "total": 557.75,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "7 ELEVEN STORE    _M",
+            "expense": 13.43,
+            "income": 0.0,
+            "total": 550.0,
+            "classification": "04 - Going out- bars"
+          },
+          {
+            "date": "2025-04-15",
+            "activity": "UBER CANADA/UBE   _V",
+            "expense": 0.0,
+            "income": 10.84,
+            "total": 53.66,
+            "classification": "IN: 01 - Reimbursements"
+          },
+          {
+            "date": "2025-04-07",
+            "activity": "PRONTOS PIZZA     _M",
+            "expense": 7.9,
+            "income": 0.0,
+            "total": 501.83,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-02",
+            "activity": "BARAKAT RESTAUR   _M",
+            "expense": 20.32,
+            "income": 0.0,
+            "total": 538.43,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-02",
+            "activity": "E-TRANSFER ***VBV",
+            "expense": 0.0,
+            "income": 25.0,
+            "total": 563.43,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-11",
+            "activity": "APPLE.COM/BILL    _V",
+            "expense": 8.95,
+            "income": 0.0,
+            "total": 357.94,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-10",
+            "activity": "APPLE.COM/BILL    _V",
+            "expense": 10.49,
+            "income": 0.0,
+            "total": 366.89,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-10",
+            "activity": "APPLE.COM/BILL    _V",
+            "expense": 32.48,
+            "income": 0.0,
+            "total": 377.38,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-10",
+            "activity": "E-TRANSFER ***DsC",
+            "expense": 0.0,
+            "income": 150.0,
+            "total": 409.86,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-10",
+            "activity": "SEND E-TFR ***PBZ",
+            "expense": 8.8,
+            "income": 0.0,
+            "total": 259.86,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "7 ELEVEN STORE    _F",
+            "expense": 13.91,
+            "income": 0.0,
+            "total": 536.09,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "E-TRANSFER ***58Y",
+            "expense": 0.0,
+            "income": 300.0,
+            "total": 836.09,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "E-TRANSFER ***eFn",
+            "expense": 0.0,
+            "income": 15.0,
+            "total": 851.09,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "WALMART.CA        _V",
+            "expense": 134.04,
+            "income": 0.0,
+            "total": 717.05,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-08",
+            "activity": "WW304 TFR-TO 6041995",
+            "expense": 150.0,
+            "income": 0.0,
+            "total": 342.02,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-03",
+            "activity": "THE MASONVILLE    _M",
+            "expense": 76.4,
+            "income": 0.0,
+            "total": 586.0,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-08",
+            "activity": "UBER CAN REV 04/07_V",
+            "expense": 0.0,
+            "income": 10.95,
+            "total": 499.83,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-04",
+            "activity": "COSTCO WHOLESAL",
+            "expense": 187.48,
+            "income": 0.0,
+            "total": 358.98,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-07",
+            "activity": "UWO WTS PAPERCU   _V",
+            "expense": 2.0,
+            "income": 0.0,
+            "total": 488.88,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-04",
+            "activity": "E-TRANSFER ***Gv7",
+            "expense": 0.0,
+            "income": 10.0,
+            "total": 368.98,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-04",
+            "activity": "E-TRANSFER ***BVE",
+            "expense": 0.0,
+            "income": 146.0,
+            "total": 514.98,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-07",
+            "activity": "E-TRANSFER ***w63",
+            "expense": 0.0,
+            "income": 11.0,
+            "total": 525.98,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "EINSTEIN'S        _M",
+            "expense": 3.55,
+            "income": 0.0,
+            "total": 345.14,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "EINSTEIN'S        _M",
+            "expense": 11.62,
+            "income": 0.0,
+            "total": 333.52,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "SEND E-TFR ***b9F",
+            "expense": 10.0,
+            "income": 0.0,
+            "total": 1408.09,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "Nintendo CA1386   _V",
+            "expense": 8.46,
+            "income": 0.0,
+            "total": 310.95,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-25",
+            "activity": "APPLE.COM/BILL    _V",
+            "expense": 8.95,
+            "income": 0.0,
+            "total": 8.47,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-25",
+            "activity": "JY140 TFR-FR 6041995",
+            "expense": 0.0,
+            "income": 10.0,
+            "total": 18.47,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "JB501 TFR-FR 6041995",
+            "expense": 0.0,
+            "income": 30.0,
+            "total": 36.16,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "JB504 TFR-FR 6041995",
+            "expense": 0.0,
+            "income": 50.0,
+            "total": 86.16,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "SEND E-TFR ***qdD",
+            "expense": 12.0,
+            "income": 0.0,
+            "total": 74.16,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "E-TRANSFER ***hGv",
+            "expense": 0.0,
+            "income": 9.0,
+            "total": 83.16,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "PAPA JOHN'S PIZ   _M",
+            "expense": 19.87,
+            "income": 0.0,
+            "total": 63.29,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-24",
+            "activity": "INTERCITY BUS G   _V",
+            "expense": 36.15,
+            "income": 0.0,
+            "total": 17.42,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "AMZN Mktp CA      _V",
+            "expense": 0.0,
+            "income": 214.69,
+            "total": 261.98,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "SEND E-TFR ***7Rw",
+            "expense": 42.8,
+            "income": 0.0,
+            "total": 146.38,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "SEND E-TFR ***BFk",
+            "expense": 42.8,
+            "income": 0.0,
+            "total": 103.58,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "SEND E-TFR ***FJC",
+            "expense": 42.8,
+            "income": 0.0,
+            "total": 60.78,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "E-TRANSFER ***u4P",
+            "expense": 0.0,
+            "income": 1500.0,
+            "total": 1555.78,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "HI352 TFR-TO 6041995",
+            "expense": 55.0,
+            "income": 0.0,
+            "total": 1500.78,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "AIR CAN*          _V",
+            "expense": 39.55,
+            "income": 0.0,
+            "total": 1461.23,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-30",
+            "activity": "APPLE.COM/BILL    _V",
+            "expense": 10.49,
+            "income": 0.0,
+            "total": 1450.74,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-28",
+            "activity": "SEND E-TFR ***KjF",
+            "expense": 72.8,
+            "income": 0.0,
+            "total": 189.18,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "McDonalds 29156   _V",
+            "expense": 14.11,
+            "income": 0.0,
+            "total": 319.41,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-24",
+            "activity": "IT204 TFR-FR 6041995",
+            "expense": 0.0,
+            "income": 40.0,
+            "total": 53.57,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-23",
+            "activity": "7 ELEVEN STORE    _F",
+            "expense": 1.98,
+            "income": 0.0,
+            "total": 28.27,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "E-TRANSFER ***J4b",
+            "expense": 0.0,
+            "income": 9.0,
+            "total": 319.95,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "RO303 TFR-TO 6041995",
+            "expense": 150.0,
+            "income": 0.0,
+            "total": 169.95,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "RR512 TFR-FR 6041995",
+            "expense": 0.0,
+            "income": 100.0,
+            "total": 269.95,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "COSTCO WHOLESAL",
+            "expense": 252.22,
+            "income": 0.0,
+            "total": 17.73,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "COSTCO WHOLESAL   _M",
+            "expense": 4.62,
+            "income": 0.0,
+            "total": 13.11,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-01",
+            "activity": "SHOPPERS DRUG M   _M",
+            "expense": 4.51,
+            "income": 0.0,
+            "total": 1446.57,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-15",
+            "activity": "E-TRANSFER ***szq",
+            "expense": 0.0,
+            "income": 21.0,
+            "total": 53.77,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-24",
+            "activity": "E-TRANSFER ***EFS",
+            "expense": 0.0,
+            "income": 10.0,
+            "total": 13.57,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-15",
+            "activity": "E-TRANSFER ***Rbn",
+            "expense": 0.0,
+            "income": 15.9,
+            "total": 69.56,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "McDonalds 29156   _V",
+            "expense": 9.93,
+            "income": 0.0,
+            "total": 12.1,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "APPLE.COM/BILL    _V",
+            "expense": 8.95,
+            "income": 0.0,
+            "total": 3.15,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "JW093 TFR-FR 6041995",
+            "expense": 0.0,
+            "income": 50.0,
+            "total": 53.15,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "SEND E-TFR ***My8",
+            "expense": 13.87,
+            "income": 0.0,
+            "total": 39.28,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "SEND E-TFR ***Agc",
+            "expense": 5.0,
+            "income": 0.0,
+            "total": 23.44,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "E-TRANSFER ***fQE",
+            "expense": 0.0,
+            "income": 45.0,
+            "total": 52.44,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-21",
+            "activity": "E-TRANSFER ***nry",
+            "expense": 0.0,
+            "income": 4.5,
+            "total": 40.25,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-17",
+            "activity": "SHOPPERS DRUG M   _F",
+            "expense": 28.78,
+            "income": 0.0,
+            "total": 22.03,
+            "classification": "No classification"
+          },
+          {
+            "date": "2025-04-14",
+            "activity": "E-TRANSFER ***mGR",
+            "expense": 0.0,
+            "income": 30.5,
+            "total": 32.77,
+            "classification": "No classification"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2f916388-1168-492b-b7bb-d1eb331c4274",
+    "filename": "Feb2025accounts.csv",
+    "uploadDate": "2026-02-11T16:17:38.169499",
+    "totalRecords": 67,
+    "totalExpense": 2561.63,
+    "totalIncome": 2463.52,
+    "data": [
+      {
+        "date": "2025-02-03",
+        "activity": "OPENAI *CH   22.40_V",
+        "expense": 33.76,
+        "income": 0.0,
+        "total": 1301.17,
+        "classification": "01 - Snack"
+      },
+      {
+        "date": "2025-02-28",
+        "activity": "Spotify P3    7.16_V",
+        "expense": 7.16,
+        "income": 0.0,
+        "total": 1369.82,
+        "classification": "01 - Snack"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "UCC TIM'S UPPER   _M",
+        "expense": 6.08,
+        "income": 0.0,
+        "total": 11.86,
+        "classification": "01 - Snack"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "RAY'S VARIETY     _M",
+        "expense": 3.0,
+        "income": 0.0,
+        "total": 1275.82,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-04",
+        "activity": "Amazon.ca Prime   _V",
+        "expense": 11.29,
+        "income": 0.0,
+        "total": 4.0,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "AMZN Mktp CA      _V",
+        "expense": 68.32,
+        "income": 0.0,
+        "total": 229.35,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "AMZN Mktp CA      _V",
+        "expense": 202.12,
+        "income": 0.0,
+        "total": 27.23,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "Letus Rent       MSP",
+        "expense": 875.0,
+        "income": 0.0,
+        "total": 15.29,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "AMZN Mktp CA      _V",
+        "expense": 18.07,
+        "income": 0.0,
+        "total": 75.22,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-05",
+        "activity": "RAY'S VARIETY     _M",
+        "expense": 15.95,
+        "income": 0.0,
+        "total": 20.74,
+        "classification": "02 - Snack"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "UBER CANADA/UBE   _V",
+        "expense": 25.56,
+        "income": 0.0,
+        "total": 13.98,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "UBER CANADA/UBE   _V",
+        "expense": 18.0,
+        "income": 0.0,
+        "total": 19.54,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-13",
+        "activity": "UBER CANADA/UBE   _V",
+        "expense": 17.9,
+        "income": 0.0,
+        "total": 3.17,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-06",
+        "activity": "UBER CANADA/UBE   _V",
+        "expense": 10.84,
+        "income": 0.0,
+        "total": 41.4,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-06",
+        "activity": "7 ELEVEN STORE    _M",
+        "expense": 1.98,
+        "income": 0.0,
+        "total": 39.42,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-25",
+        "activity": "UBER CANADA/UBE   _V",
+        "expense": 43.64,
+        "income": 0.0,
+        "total": 2.59,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "UBER CANADA/UBE   _V",
+        "expense": 96.56,
+        "income": 0.0,
+        "total": 1215.26,
+        "classification": "04 - Going out- bars"
+      },
+      {
+        "date": "2025-02-05",
+        "activity": "E-TRANSFER ***hXV",
+        "expense": 0.0,
+        "income": 50.0,
+        "total": 54.0,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "E-TRANSFER ***JwZ",
+        "expense": 0.0,
+        "income": 90.0,
+        "total": 102.48,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "MCDONALD'S #291   _M",
+        "expense": 1.5,
+        "income": 0.0,
+        "total": 12.48,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "E-TRANSFER ***kaK",
+        "expense": 0.0,
+        "income": 20.0,
+        "total": 39.54,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "SEND E-TFR ***HUs",
+        "expense": 237.0,
+        "income": 0.0,
+        "total": 978.26,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "THE SPOKE         _M",
+        "expense": 6.63,
+        "income": 0.0,
+        "total": 37.54,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "E-TRANSFER ***g59",
+        "expense": 0.0,
+        "income": 30.0,
+        "total": 44.17,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "E-TRANSFER ***G2H",
+        "expense": 0.0,
+        "income": 18.0,
+        "total": 1293.82,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "MCDONALD'S #291   _M",
+        "expense": 8.48,
+        "income": 0.0,
+        "total": 14.17,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-07",
+        "activity": "TGTG 1awytwv7ww   _V",
+        "expense": 5.99,
+        "income": 0.0,
+        "total": 33.43,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "WALMART.CA        _V",
+        "expense": 71.59,
+        "income": 0.0,
+        "total": 906.67,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "E-TRANSFER ***Yxb",
+        "expense": 0.0,
+        "income": 18.0,
+        "total": 1311.82,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-06",
+        "activity": "E-TRANSFER ***hR2",
+        "expense": 0.0,
+        "income": 50.0,
+        "total": 52.24,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "E-TRANSFER ***jqJ",
+        "expense": 0.0,
+        "income": 5.0,
+        "total": 1278.82,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-05",
+        "activity": "SEND E-TFR ***QvR",
+        "expense": 18.5,
+        "income": 0.0,
+        "total": 2.24,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "WALMART.CA        _V",
+        "expense": 89.54,
+        "income": 0.0,
+        "total": 12.94,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-05",
+        "activity": "EVENTBRITE/CUPI   _V",
+        "expense": 17.31,
+        "income": 0.0,
+        "total": 36.69,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-07",
+        "activity": "METRO  247        _M",
+        "expense": 10.78,
+        "income": 0.0,
+        "total": 22.65,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "METRO  247        _M",
+        "expense": 16.38,
+        "income": 0.0,
+        "total": 890.29,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-28",
+        "activity": "SEND E-TFR ***Dww",
+        "expense": 35.0,
+        "income": 0.0,
+        "total": 1236.82,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-11",
+        "activity": "WALMART.CA        _V",
+        "expense": 6.17,
+        "income": 0.0,
+        "total": 5.69,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-28",
+        "activity": "SEND E-TFR ***UwZ",
+        "expense": 98.0,
+        "income": 0.0,
+        "total": 1271.82,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-27",
+        "activity": "E-TRANSFER ***Md2",
+        "expense": 0.0,
+        "income": 53.4,
+        "total": 1376.98,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-27",
+        "activity": "COSTCO WHOLESAL   _M",
+        "expense": 4.62,
+        "income": 0.0,
+        "total": 1323.58,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-27",
+        "activity": "COSTCO WHOLESAL   _F",
+        "expense": 171.89,
+        "income": 0.0,
+        "total": 1328.2,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-27",
+        "activity": "E-TRANSFER ***t58",
+        "expense": 0.0,
+        "income": 1500.0,
+        "total": 1500.09,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-26",
+        "activity": "SEND E-TFR ***Yp7",
+        "expense": 3.0,
+        "income": 0.0,
+        "total": 0.09,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-26",
+        "activity": "HO301 TFR-FR 6041995",
+        "expense": 0.0,
+        "income": 1.0,
+        "total": 3.09,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-26",
+        "activity": "HO300 TFR-TO 6041995",
+        "expense": 0.5,
+        "income": 0.0,
+        "total": 2.09,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-25",
+        "activity": "E-TRANSFER ***qc5",
+        "expense": 0.0,
+        "income": 19.0,
+        "total": 46.23,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "E-TRANSFER ***qMY",
+        "expense": 0.0,
+        "income": 270.0,
+        "total": 297.67,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "SEND E-TFR ***xCK",
+        "expense": 7.0,
+        "income": 0.0,
+        "total": 27.67,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "SEND E-TFR ***m3M",
+        "expense": 6.8,
+        "income": 0.0,
+        "total": 34.67,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "MCDONALD'S #405   _M",
+        "expense": 14.33,
+        "income": 0.0,
+        "total": 41.47,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "UNION MERCADO     _M",
+        "expense": 19.42,
+        "income": 0.0,
+        "total": 55.8,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "A W               _M",
+        "expense": 15.51,
+        "income": 0.0,
+        "total": 93.29,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-24",
+        "activity": "LA VOUTE          _M",
+        "expense": 85.19,
+        "income": 0.0,
+        "total": 108.8,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-21",
+        "activity": "JEAN COUTU  285   _M",
+        "expense": 4.5,
+        "income": 0.0,
+        "total": 193.99,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-21",
+        "activity": "TOM-Paul Toussa   _M",
+        "expense": 20.24,
+        "income": 0.0,
+        "total": 198.49,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-19",
+        "activity": "TABAGIE METRO P   _M",
+        "expense": 4.85,
+        "income": 0.0,
+        "total": 218.73,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-19",
+        "activity": "RESTAURANT SAMM   _F",
+        "expense": 89.59,
+        "income": 0.0,
+        "total": 223.58,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-19",
+        "activity": "TD ATM DEP    001787",
+        "expense": 0.0,
+        "income": 280.0,
+        "total": 313.17,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-18",
+        "activity": "E-TRANSFER ***np6",
+        "expense": 0.0,
+        "income": 30.0,
+        "total": 33.17,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-12",
+        "activity": "E-TRANSFER ***3JR",
+        "expense": 0.0,
+        "income": 11.95,
+        "total": 21.07,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-12",
+        "activity": "E-TRANSFER ***4gk",
+        "expense": 0.0,
+        "income": 6.0,
+        "total": 9.12,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-12",
+        "activity": "WALMART.CA        _V",
+        "expense": 4.35,
+        "income": 0.0,
+        "total": 3.12,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-12",
+        "activity": "WALMART. REV 02/11_V",
+        "expense": 0.0,
+        "income": 6.17,
+        "total": 7.47,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-03",
+        "activity": "LEVEL UP BARBER   _M",
+        "expense": 27.35,
+        "income": 0.0,
+        "total": 1273.82,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-10",
+        "activity": "RW323 TFR-FR 6041995",
+        "expense": 0.0,
+        "income": 5.0,
+        "total": 17.94,
+        "classification": "No classification"
+      },
+      {
+        "date": "2025-02-11",
+        "activity": "THE SPOKE         _M",
+        "expense": 4.39,
+        "income": 0.0,
+        "total": 1.3,
+        "classification": "No classification"
+      }
+    ]
+  }
+]

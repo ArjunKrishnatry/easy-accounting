@@ -11,7 +11,8 @@
             "UBER CANADA/UBE   _V",
             "SEND E-TFR ***Byv",
             "LOST LOVE         _M",
-            "TST-Updated - T   _M"
+            "TST-Updated - T   _M",
+            "BARAKAT RESTAUR   _M"
         ]
     },
     {
@@ -33,7 +34,9 @@
             "SEND E-TFR ***jVu",
             "SEND E-TFR ***G2X",
             "EAST SIDE MARIO   _M",
-            "NATURAL TIM'S     _M"
+            "NATURAL TIM'S     _M",
+            "SHOPPERS DRUG M   _M",
+            "EVENTBRITE/CUPI   _V"
         ]
     },
     {
@@ -47,7 +50,9 @@
             "UBER CANADA/UBE   _V",
             "SEND E-TFR ***SqF",
             "METRO  247        _F",
-            "WESTERN IVEY HB   _V"
+            "WESTERN IVEY HB   _V",
+            "7 ELEVEN STORE    _F",
+            "SEND E-TFR ***QvR"
         ]
     },
     {
@@ -62,7 +67,27 @@
             "HOLY CANNABIS     _F",
             "SEND E-TFR ***jkD",
             "PTS TO:  94006041995",
-            "SEND E-TFR ***eFb"
+            "SEND E-TFR ***eFb",
+            "METRO  247        _M"
+        ]
+    },
+    {
+        "classification": "05 - Haircut",
+        "expenses_attributed": [
+            "LEVEL UP BARBER   _M"
+        ]
+    },
+    {
+        "classification": "06 - E-transfer",
+        "expenses_attributed": [
+            "SEND E-TFR ***HUs"
+        ]
+    },
+    {
+        "classification": "07 - Groceries",
+        "expenses_attributed": [
+            "WALMART.CA        _V",
+            "TGTG 1awytwv7ww   _V"
         ]
     }
 ]

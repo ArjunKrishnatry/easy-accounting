@@ -23,12 +23,14 @@ type FileOrFolder = FileRecord | FolderRecord;
 interface SideTableProps {
     uploadedFiles: FileOrFolder[];
     onFileSelect: (fileId: string) => void;
+    onFolderSelect?: (folderId: string) => void;
     selectedFileId: string | null;
+    selectedFolderId: string | null;
     onRefresh: () => void;
     onDelete?: (id: string, type: 'file' | 'folder') => void;
 }
 
-export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId, onRefresh, onDelete }: SideTableProps) {
+export default function SideTable({ uploadedFiles, onFileSelect, onFolderSelect, selectedFileId, selectedFolderId, onRefresh, onDelete }: SideTableProps) {
     const [showCreateFolder, setShowCreateFolder] = useState(false);
     const [newFolderName, setNewFolderName] = useState('');
     const [renamingFile, setRenamingFile] = useState<string | null>(null);
@@ -83,7 +85,22 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
         }
     };
 
-    const toggleFolder = (folderId: string) => {
+    const handleFolderClick = (folderId: string) => {
+        // Always expand folder when clicking
+        const newExpanded = new Set(expandedFolders);
+        if (!newExpanded.has(folderId)) {
+            newExpanded.add(folderId);
+        }
+        setExpandedFolders(newExpanded);
+
+        // Select the folder to show its data
+        if (onFolderSelect) {
+            onFolderSelect(folderId);
+        }
+    };
+
+    const toggleFolderExpand = (folderId: string, e: React.MouseEvent) => {
+        e.stopPropagation();
         const newExpanded = new Set(expandedFolders);
         if (newExpanded.has(folderId)) {
             newExpanded.delete(folderId);
@@ -109,7 +126,7 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
                 className={`
                     rounded-lg p-4 cursor-pointer transition-all duration-200 border-2
                     ${selectedFileId === file.id
-                        ? 'bg-primary-50 border-primary-500 shadow-md'
+                        ? 'bg-primary-900 border-primary-500 shadow-md'
                         : 'bg-zinc-800 border-zinc-700 hover:border-zinc-600 hover:shadow-sm'
                     }
                     ${isInFolder ? 'ml-4 border-l-4 border-l-primary-400' : ''}
@@ -120,11 +137,15 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
                 <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="flex-1 min-w-0">
                         {/* Name on top */}
-                        <h3 className="text-sm font-semibold text-white truncate leading-tight">
+                        <h3 className={`text-sm font-semibold truncate leading-tight ${
+                            selectedFileId === file.id ? 'text-primary-100' : 'text-white'
+                        }`}>
                             {file.filename}
                         </h3>
                         {/* Date below */}
-                        <p className="text-xs text-zinc-400 mt-1">
+                        <p className={`text-xs mt-1 ${
+                            selectedFileId === file.id ? 'text-primary-300' : 'text-zinc-400'
+                        }`}>
                             {new Date(file.uploadDate).toLocaleDateString('en-US', {
                                 month: 'short',
                                 day: 'numeric',
@@ -134,7 +155,9 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
                     </div>
                     <div className="flex items-center gap-1 flex-shrink-0">
                         <button
-                            className="p-1.5 hover:bg-zinc-700 rounded transition-colors"
+                            className={`p-1.5 rounded transition-colors ${
+                                selectedFileId === file.id ? 'hover:bg-primary-800' : 'hover:bg-zinc-700'
+                            }`}
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setRenamingFile(file.id);
@@ -142,34 +165,38 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
                             }}
                             title="Rename"
                         >
-                            <svg className="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className={`w-4 h-4 ${selectedFileId === file.id ? 'text-primary-300' : 'text-zinc-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                             </svg>
                         </button>
                         {!isInAnyFolder && availableFolders.length > 0 && (
                             <button
-                                className="p-1.5 hover:bg-zinc-700 rounded transition-colors"
+                                className={`p-1.5 rounded transition-colors ${
+                                    selectedFileId === file.id ? 'hover:bg-primary-800' : 'hover:bg-zinc-700'
+                                }`}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setShowFolderDropdown(showFolderDropdown === file.id ? null : file.id);
                                 }}
                                 title="Move to folder"
                             >
-                                <svg className="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className={`w-4 h-4 ${selectedFileId === file.id ? 'text-primary-300' : 'text-zinc-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                                 </svg>
                             </button>
                         )}
                         {onDelete && (
                             <button
-                                className="p-1.5 hover:bg-red-100 rounded transition-colors"
+                                className={`p-1.5 rounded transition-colors ${
+                                    selectedFileId === file.id ? 'hover:bg-red-900' : 'hover:bg-red-100'
+                                }`}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     onDelete(file.id, 'file');
                                 }}
                                 title="Delete"
                             >
-                                <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className={`w-4 h-4 ${selectedFileId === file.id ? 'text-red-400' : 'text-red-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                 </svg>
                             </button>
@@ -180,16 +207,16 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
                 {/* File Stats */}
                 <div className="grid grid-cols-3 gap-2 text-xs">
                     <div>
-                        <span className="text-zinc-400 block">Records</span>
-                        <p className="font-semibold text-white">{file.totalRecords}</p>
+                        <span className={`block ${selectedFileId === file.id ? 'text-primary-300' : 'text-zinc-400'}`}>Records</span>
+                        <p className={`font-semibold ${selectedFileId === file.id ? 'text-primary-100' : 'text-white'}`}>{file.totalRecords}</p>
                     </div>
                     <div>
-                        <span className="text-zinc-400 block">Expense</span>
-                        <p className="font-semibold text-red-600">${file.totalExpense.toFixed(2)}</p>
+                        <span className={`block ${selectedFileId === file.id ? 'text-primary-300' : 'text-zinc-400'}`}>Expense</span>
+                        <p className={`font-semibold ${selectedFileId === file.id ? 'text-red-400' : 'text-red-600'}`}>${file.totalExpense.toFixed(2)}</p>
                     </div>
                     <div>
-                        <span className="text-zinc-400 block">Income</span>
-                        <p className="font-semibold text-green-600">${file.totalIncome.toFixed(2)}</p>
+                        <span className={`block ${selectedFileId === file.id ? 'text-primary-300' : 'text-zinc-400'}`}>Income</span>
+                        <p className={`font-semibold ${selectedFileId === file.id ? 'text-green-400' : 'text-green-600'}`}>${file.totalIncome.toFixed(2)}</p>
                     </div>
                 </div>
 
@@ -260,52 +287,92 @@ export default function SideTable({ uploadedFiles, onFileSelect, selectedFileId,
         );
     };
 
-    const renderFolder = (folder: FolderRecord) => (
-        <div key={folder.id} className="bg-zinc-800 border-2 border-zinc-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div
-                className={`flex items-center justify-between p-4 cursor-pointer transition-colors ${
-                    expandedFolders.has(folder.id) ? 'bg-primary-50 border-b-2 border-primary-200' : 'hover:bg-zinc-900'
-                }`}
-                onClick={() => toggleFolder(folder.id)}
-            >
-                <div className="flex items-center gap-3 flex-1">
-                    <svg className={`w-5 h-5 text-zinc-500 transition-transform ${expandedFolders.has(folder.id) ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                    <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                    </svg>
-                    <h3 className="font-semibold text-white text-sm">{folder.name}</h3>
-                    <span className="text-xs text-zinc-400 bg-zinc-700 px-2 py-0.5 rounded-full">
-                        {folder.files.length}
-                    </span>
-                </div>
-                {onDelete && (
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onDelete(folder.id, 'folder');
-                        }}
-                        className="p-1.5 hover:bg-red-100 rounded transition-colors ml-2"
-                        title="Delete folder"
-                    >
-                        <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+    const renderFolder = (folder: FolderRecord) => {
+        const isSelected = selectedFolderId === folder.id;
+        const isExpanded = expandedFolders.has(folder.id);
+        const totalExpense = folder.files.reduce((sum, f) => sum + f.totalExpense, 0);
+        const totalIncome = folder.files.reduce((sum, f) => sum + f.totalIncome, 0);
+        const totalRecords = folder.files.reduce((sum, f) => sum + f.totalRecords, 0);
+
+        return (
+            <div key={folder.id} className={`border-2 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
+                isSelected ? 'bg-primary-900 border-primary-500' : 'bg-zinc-800 border-zinc-700'
+            }`}>
+                <div
+                    className={`flex items-center justify-between p-4 cursor-pointer transition-colors ${
+                        isSelected ? 'bg-primary-900' : isExpanded ? 'bg-zinc-900' : 'hover:bg-zinc-900'
+                    }`}
+                    onClick={() => handleFolderClick(folder.id)}
+                >
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
+                        <button
+                            onClick={(e) => toggleFolderExpand(folder.id, e)}
+                            className={`p-0.5 rounded hover:bg-zinc-700 transition-colors flex-shrink-0`}
+                        >
+                            <svg className={`w-5 h-5 transition-transform ${isSelected ? 'text-primary-300' : 'text-zinc-500'} ${isExpanded ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <svg className={`w-5 h-5 flex-shrink-0 ${isSelected ? 'text-primary-400' : 'text-primary-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                         </svg>
-                    </button>
+                        <h3 className={`font-semibold text-sm truncate ${isSelected ? 'text-primary-100' : 'text-white'}`}>{folder.name}</h3>
+                        <span className={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 ${
+                            isSelected ? 'text-primary-200 bg-primary-800' : 'text-zinc-400 bg-zinc-700'
+                        }`}>
+                            {folder.files.length}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                        {onDelete && (
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onDelete(folder.id, 'folder');
+                                }}
+                                className={`p-1.5 rounded transition-colors ${isSelected ? 'hover:bg-red-900' : 'hover:bg-red-100'}`}
+                                title="Delete folder"
+                            >
+                                <svg className={`w-4 h-4 ${isSelected ? 'text-red-400' : 'text-red-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        )}
+                    </div>
+                </div>
+
+                {/* Folder Stats (shown when selected) */}
+                {isSelected && folder.files.length > 0 && (
+                    <div className="px-4 py-3 bg-primary-800 border-t border-primary-700">
+                        <div className="grid grid-cols-3 gap-2 text-xs">
+                            <div>
+                                <span className="text-primary-300 block">Records</span>
+                                <p className="font-semibold text-primary-100">{totalRecords}</p>
+                            </div>
+                            <div>
+                                <span className="text-primary-300 block">Expense</span>
+                                <p className="font-semibold text-red-400">${totalExpense.toFixed(2)}</p>
+                            </div>
+                            <div>
+                                <span className="text-primary-300 block">Income</span>
+                                <p className="font-semibold text-green-400">${totalIncome.toFixed(2)}</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {expandedFolders.has(folder.id) && (
+                    <div className="p-4 space-y-3 bg-zinc-900">
+                        {folder.files.length === 0 ? (
+                            <p className="text-sm text-zinc-400 text-center py-4">No files in this folder</p>
+                        ) : (
+                            folder.files.map(file => renderFile(file, true))
+                        )}
+                    </div>
                 )}
             </div>
-            {expandedFolders.has(folder.id) && (
-                <div className="p-4 space-y-3 bg-zinc-900">
-                    {folder.files.length === 0 ? (
-                        <p className="text-sm text-zinc-400 text-center py-4">No files in this folder</p>
-                    ) : (
-                        folder.files.map(file => renderFile(file, true))
-                    )}
-                </div>
-            )}
-        </div>
-    );
+        );
+    };
 
     return (
         <div className="space-y-4">
